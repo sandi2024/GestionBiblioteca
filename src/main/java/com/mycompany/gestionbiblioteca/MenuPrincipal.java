@@ -1,11 +1,13 @@
 
 package com.mycompany.gestionbiblioteca;
 
+import GUIBiblioteca.Biblioteca;
+import GUIBiblioteca.*;
+import GestionLibros.MetodosB;
 import GuiUsuario.EliminarUsuario;
 import GuiUsuario.Registro;
 
 public class MenuPrincipal extends javax.swing.JFrame {
-
 
     public MenuPrincipal() {
         initComponents();
@@ -20,7 +22,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Registro = new javax.swing.JButton();
         Eliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        RegistroL = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,7 +43,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Registro libros");
+        RegistroL.setText("Registro libros");
+        RegistroL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistroLActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -58,7 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(RegistroL)
                 .addGap(63, 63, 63))
         );
         jPanel1Layout.setVerticalGroup(
@@ -67,7 +74,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(Registro)
                 .addGap(38, 38, 38)
-                .addComponent(jButton1)
+                .addComponent(RegistroL)
                 .addGap(5, 5, 5)
                 .addComponent(Eliminar)
                 .addContainerGap(239, Short.MAX_VALUE))
@@ -113,6 +120,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         eliminar.setVisible(true);              
     }//GEN-LAST:event_EliminarActionPerformed
 
+    private void RegistroLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroLActionPerformed
+        // TODO add your handling code here:
+        Biblioteca1 biblioteca = new Biblioteca1();
+        biblioteca.setVisible(true);
+    }//GEN-LAST:event_RegistroLActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -151,7 +164,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Registro;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton RegistroL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -1,13 +1,12 @@
 package GestionLibros;
 
 
-public class LibroDigital {
+public class LibroDigital extends Libro{
     
-    private static final long serialVersionUID = 1L;
     private String formato;
 
-    public LibroDigital(String titulo, String autor, String formato) {
-        super(titulo, autor);
+    public LibroDigital(String id, String titulo, String autor, int edicion, String isbn, String formato) {
+        super(id, titulo, autor, edicion, isbn);
         this.formato = formato;
     }
 
