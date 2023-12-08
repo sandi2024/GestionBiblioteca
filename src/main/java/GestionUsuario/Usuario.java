@@ -1,9 +1,7 @@
 
 package GestionUsuario;
 
-import java.io.Serializable;
-
-public class Usuario implements Serializable{
+public class Usuario{
     
     protected String nombre;
     protected String correo;

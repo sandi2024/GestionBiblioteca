@@ -1,23 +1,30 @@
 
 package GestionLibros;
-import java.io.Serializable;
 
-public abstract class Libro implements Serializable{
+import java.io.*;
+
+public class Libro{
     
     private String id;
     protected String titulo;
     protected String autor;
     protected int edicion;
     protected String isbn;
+    protected int copia;
 
-    public Libro(String id, String titulo, String autor, int edicion, String isbn) {
+    public Libro(String id, String titulo, String autor, int edicion, String isbn, int copia) {
         setId(id);
         setTitulo(titulo);
         setAutor(autor);
         setEdicion(edicion);
         setIsbn(isbn);
+        setCopia(copia);
     }
-
+    
+    public Libro() {
+       
+    }
+    
     public String getId() {
         return id;
     }
@@ -56,6 +63,14 @@ public abstract class Libro implements Serializable{
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+    
+    public int getCopia() {
+        return copia;
+    }
+
+    public void setCopia(int copia) {
+        this.copia = copia;
     }
    
     @Override

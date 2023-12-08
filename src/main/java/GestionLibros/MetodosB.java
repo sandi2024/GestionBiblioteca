@@ -5,6 +5,7 @@ import java.awt.List;
 import java.io.FileInputStream;
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,62 +13,69 @@ import java.util.*;
  */
 public class MetodosB {
    
-    public ArrayList<Libro> libros;
+    Vector libros = new Vector();
+   
 
-    public MetodosB() {
-        libros = new ArrayList<>();
-    }
+  //  public MetodosB() {
+   //     libros = new libro<>();
+  //  }
 
-    public void registrarLibro(Libro libro) {
-        libros.add(libro);
+    public void registrarLibro(Libro unLibro) {
+        libros.addElement(unLibro); 
     }
 
     public void eliminarLibro(Libro libro) {
         libros.remove(libro);
     }
 
-    public ArrayList<Libro> getLibros() {
+    public Vector getLibros() {
         return libros;
     }
 
-    public ArrayList<Libro> buscarLibrosPorAutor(String autor) {
-        ArrayList<Libro> librosEncontrados = new ArrayList<>();
-        for (Libro libro : libros) {
-            if (libro.autor.equalsIgnoreCase(autor)) {
-                librosEncontrados.add(libro);
-            }
-        }
-        return librosEncontrados;
-    }
+  //  public ArrayList<Libro> buscarLibrosPorAutor(String autor) {
+   //     ArrayList<Libro> librosEncontrados = new ArrayList<>();
+   //     for (Object libro : libros) {
+   //         if (libro.autor.equalsIgnoreCase(autor)) {
+   //             librosEncontrados.add((Libro) libro);
+  //          }
+   //     }
+  //      return librosEncontrados;
+  //  }
 
-    public ArrayList<Libro> buscarLibrosPorTitulo(String titulo) {
-        ArrayList<Libro> librosEncontrados = new ArrayList<>();
-        for (Libro libro : libros) {
-            if (libro.titulo.equalsIgnoreCase(titulo)) {
-                librosEncontrados.add(libro);
-            }
-        }
-        return librosEncontrados;
-    }
+ //   public ArrayList<Libro> buscarLibrosPorFolio(String folio) {
+ //       ArrayList<Libro> librosEncontrados = new ArrayList<>();
+ //       for (Libro libro : libros) {
+ //           if (libro.titulo.equalsIgnoreCase(folio)) {
+  //              librosEncontrados.add(libro);
+  //          }
+ //       }
+ //       return librosEncontrados;
+ //  }
 
     public void guardarLibros(Libro libro) {
         try {
             FileOutputStream archivo = new FileOutputStream("Libros.dat");
             ObjectOutputStream escritura = new ObjectOutputStream(archivo);
             escritura.writeObject(libro);
-            System.out.println("Libro guardados correctamente en el archivo " + archivo);
+            JOptionPane.showMessageDialog(null,"Registro exitoso");
+            escritura.close();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
- //   public void cargarLibros(String archivo) {
-//        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivo))) {
-  //          libros = (List<Libro>) ois.readObject();
-  //          System.out.println("Libros cargados correctamente desde el archivo " + archivo);
-   //     } catch (IOException | ClassNotFoundException e) {
+ //   public void cargarLibros() {
+ //       try {
+ ///           FileInputStream archivo = new FileInputStream("Libros.dat");
+ //           ObjectInputStream lectura = new ObjectInputStream(archivo);
+//             libros = (List<Libro>) lectura.readObject();
+ //           System.out.println("Libros cargados correctamente desde el archivo " + archivo);
+            
+  //         } catch (IOException | ClassNotFoundException e) {
   //          e.printStackTrace();
-  //      }
+  //         }
+  //  }
 }
     
 
